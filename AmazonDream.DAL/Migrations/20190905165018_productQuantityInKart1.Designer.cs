@@ -3,13 +3,15 @@ using AmazonDream.DAL;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace AmazonDream.DAL.Migrations
 {
     [DbContext(typeof(AmazonDreamDbContext))]
-    partial class AmazonDreamDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190905165018_productQuantityInKart1")]
+    partial class productQuantityInKart1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -103,10 +105,6 @@ namespace AmazonDream.DAL.Migrations
                     b.Property<string>("ProductSubCategory")
                         .IsRequired()
                         .HasMaxLength(100);
-
-                    b.Property<string>("ProductTrend")
-                        .IsRequired()
-                        .HasMaxLength(50);
 
                     b.Property<long>("Seller_ID");
 

@@ -22,6 +22,8 @@ namespace AmazonDream.Entities
         [Required]
         public int ProductQuantity { get; set; }
 
+        public int ProductQuantityInKart { get; set; }
+
         [Required]
         public int ProductDiscount { get; set; }
 
@@ -47,6 +49,10 @@ namespace AmazonDream.Entities
         [Required]
         [MaxLength(50)]
         public string ProductStatus { get; set; }
+
+        [Required]
+        [MaxLength(50)]
+        public string ProductTrend { get; set; }
 
 
 
