@@ -53,7 +53,7 @@ namespace AmazonDream.DAL
         }
         public List<Product> GetProductsAll(long id)        //get all product by seller ID
         {
-            return (db.Product.Where(p => p.Seller_ID == id).ToList());
+            return (db.Product.Where(p => p.Seller_ID == id && p.ProductStatus != "Deleted").ToList());
         }
         public List<Product> GetProductsPending(long id)        //get Pending product by seller ID
         {

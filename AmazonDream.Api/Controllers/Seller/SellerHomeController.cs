@@ -23,7 +23,7 @@ namespace AmazonDream.Api.Controllers
             obj = new Registration_BLL(mapper);
         }
 
-        // POST: api/Registration
+        // POST: api/sellerhome
         [HttpPost]
         public IActionResult Post([FromBody]  SellerModel model)
         {
