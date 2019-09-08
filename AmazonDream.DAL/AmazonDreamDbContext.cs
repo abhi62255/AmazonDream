@@ -17,6 +17,7 @@ namespace AmazonDream.DAL
         public virtual DbSet<Admin> Admin { get; set; }
         public virtual DbSet<Product> Product { get; set; }
         public virtual DbSet<ProductPicture> ProductPicture { get; set; }
+        public virtual DbSet<Kart> Kart { get; set; }
 
 
 

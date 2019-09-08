@@ -47,7 +47,7 @@ namespace AmazonDream.BLL
             return (model);
         }
 
-        public Boolean PutSellerRequest(string value,long id)            //Respond to seller Request :Accepted:Deleted
+        public Boolean PutSeller(string value,long id)            //Respond to seller Request :Accepted:Deleted
         {
             if (!(value == "Accepted" || value == "Deleted" || value == "accepted" || value == "deleted"))      //check for the if it is valid or not
                 return false;
@@ -66,7 +66,7 @@ namespace AmazonDream.BLL
 
         }
 
-        public Boolean PutProductRequest(string value, long id)            //Respond to seller Request :Accepted:Deleted
+        public Boolean PutProduct(string value, long id)            //Respond to seller Request :Accepted:Deleted
         {
             if (!(value == "Accepted" || value == "Deleted" || value == "accepted" || value == "deleted"))      //check for the "value" if it is valid or not
                 return false;

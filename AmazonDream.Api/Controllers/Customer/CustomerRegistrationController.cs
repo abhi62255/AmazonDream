@@ -9,15 +9,15 @@ namespace AmazonDream.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CustomerHomeController : ControllerBase
+    public class CustomerRegistrationController : ControllerBase
     {
         private Registration_BLL obj;
-        public CustomerHomeController(IMapper mapper)
+        public CustomerRegistrationController(IMapper mapper)
         {
             obj = new Registration_BLL(mapper);
         }
 
-        public IActionResult Post([FromBody] CustomerModel model)
+        public IActionResult Post([FromBody] CustomerModel model)           //User Registration
         {
             if (!ModelState.IsValid)
             {

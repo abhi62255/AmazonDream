@@ -30,5 +30,11 @@ namespace AmazonDream.Entities
         [Required]
         public string Gender { get; set; }
 
+
+
+
+        public virtual ICollection<Kart> Kart { get; set; }
+
+
     }
 }

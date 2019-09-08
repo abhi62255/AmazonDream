@@ -28,6 +28,9 @@ namespace AmazonDream.BLL
             CreateMap<ProductPicture, ProductPictureModel>();
             CreateMap<ProductPictureModel, ProductPicture>();
 
+            CreateMap<Kart, KartModel>();
+            CreateMap<KartModel, Kart>();
+
 
 
 

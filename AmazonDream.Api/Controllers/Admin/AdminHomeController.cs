@@ -40,11 +40,11 @@ namespace AmazonDream.Api.Controllers.Admin
             return obj.GetSeller(value);
         }
 
-        // PUT: api/AdminHome/SellerRequest/Accepted:Deleted
-        [HttpPut("SellerRequest/{value}/{id}")]
-        public IActionResult PutSellerRequest(string value,long id)             //Respond to seller Request :Accepted:Deleted
+        // PUT: api/AdminHome/Seller/Accepted:Deleted
+        [HttpPut("Seller/{value}/{id}")]
+        public IActionResult PutSeller(string value,long id)             //Respond to seller Request :Accepted:Deleted
         {
-            var model = obj.PutSellerRequest(value,id);
+            var model = obj.PutSeller(value,id);
 
             if (model)
                 return Ok();
@@ -52,11 +52,11 @@ namespace AmazonDream.Api.Controllers.Admin
             return BadRequest();
         }
 
-        // PUT: api/AdminHome/ProductRequest/Accepted:Deleted
-        [HttpPut("ProductRequest/{value}/{id}")]
-        public IActionResult PutProductRequest(string value, long id)             //Respond to seller Product Request :Accepted:Deleted
+        // PUT: api/AdminHome/Product/Accepted:Deleted
+        [HttpPut("Product/{value}/{id}")]
+        public IActionResult PutProduct(string value, long id)             //Respond to seller Product Request :Accepted:Deleted
         {
-            var model = obj.PutProductRequest(value, id);
+            var model = obj.PutProduct(value, id);
 
             if (model)
                 return Ok();
@@ -72,7 +72,7 @@ namespace AmazonDream.Api.Controllers.Admin
 
 
         [HttpPut("TrendResponse/{value}/{id}")]
-        public IActionResult TrendResponse(string value,int id)         //Get Trending Product
+        public IActionResult TrendResponse(string value,int id)         //Give Trend response True:False
         {
             var model = obj.TrendResponse(value, id);
             if (model)

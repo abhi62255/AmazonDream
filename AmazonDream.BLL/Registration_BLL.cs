@@ -20,7 +20,7 @@ namespace AmazonDream.BLL
         }
 
 
-        public Boolean SellerRegistration(SellerModel model)
+        public Boolean SellerRegistration(SellerModel model)            //Seller Registration
         {
             if(obj.EmailExistance(model.Email))
             {
@@ -40,7 +40,7 @@ namespace AmazonDream.BLL
         }
 
 
-        public Boolean CustomerRegistration(CustomerModel model)
+        public Boolean CustomerRegistration(CustomerModel model)        //Customer Registration
         {
             if (obj.EmailExistance(model.Email))
             {

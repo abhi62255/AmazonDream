@@ -20,20 +20,20 @@ namespace AmazonDream.DAL
    
 
 
-        public Boolean SellerRegistration(Seller model)
+        public Boolean SellerRegistration(Seller model)         //Add Seller to database
         { 
             db.Seller.Add(model);
             db.SaveChanges();
             return true;
         }
-        public Boolean CustomerRegistration(Customer model)
+        public Boolean CustomerRegistration(Customer model)             //Add Customer to database
         {
             db.Customer.Add(model);
             db.SaveChanges();
             return true;
         }
 
-        public Boolean EmailExistance( string email)
+        public Boolean EmailExistance( string email)            //Checking if email is already registered or not
         {
             if(db.Admin.Where(e => e.Email == email).FirstOrDefault() == null)
             {

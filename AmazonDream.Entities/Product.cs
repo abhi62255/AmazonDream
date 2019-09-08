@@ -64,6 +64,8 @@ namespace AmazonDream.Entities
 
 
         public virtual ICollection<ProductPicture> ProductPictures { get; set; }
+        public virtual ICollection<Kart> Kart { get; set; }
+
 
 
     }
