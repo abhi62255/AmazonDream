@@ -31,7 +31,18 @@ namespace AmazonDream.DAL
         {
             if(UpdateProduct(product))
             {
-                db.Kart.Add(entity);
+                var model = db.Kart.Where(k => k.Product_ID == entity.Product_ID && k.Customer_ID == entity.Customer_ID).FirstOrDefault();
+
+                if (model == null)          //checking if that product alreday exist in kart or not
+                {
+                    db.Kart.Add(entity);
+                }
+                else    //If exit then only update Quantity in Kart
+                {
+                    model.Quantity += entity.Quantity; 
+                    db.Entry(model).State = EntityState.Modified;
+                }
+
                 try
                 {
                     db.SaveChanges();
@@ -87,7 +98,7 @@ namespace AmazonDream.DAL
         public Boolean RemoveKart(long id,List<Product> products)          //remove Whole Kart for a customer
         {
             var entity = GetCustomerKart(id);
-            foreach (var pro in products)               //update all products INkart value
+            foreach (var pro in products)               //update all products IN kart value
             {
                 if (UpdateProduct(pro) == false)
                     return false;

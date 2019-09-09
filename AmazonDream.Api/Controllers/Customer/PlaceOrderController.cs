@@ -27,7 +27,7 @@ namespace AmazonDream.Api.Controllers.Customer
         {
             if(obj.PlaceOrder(model))
                 return Ok();
-            return BadRequest();
+            return BadRequest("abcd");
         }
         
     }
