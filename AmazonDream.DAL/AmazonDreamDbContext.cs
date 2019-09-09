@@ -18,6 +18,10 @@ namespace AmazonDream.DAL
         public virtual DbSet<Product> Product { get; set; }
         public virtual DbSet<ProductPicture> ProductPicture { get; set; }
         public virtual DbSet<Kart> Kart { get; set; }
+        public virtual DbSet<Address> Address { get; set; }
+        public virtual DbSet<PlacedOrder> PlacedOrder { get; set; }
+
+
 
 
 

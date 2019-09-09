@@ -4,13 +4,15 @@ using AmazonDream.DAL;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace AmazonDream.DAL.Migrations
 {
     [DbContext(typeof(AmazonDreamDbContext))]
-    partial class AmazonDreamDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190909052902_Address")]
+    partial class Address
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -118,39 +120,6 @@ namespace AmazonDream.DAL.Migrations
                     b.HasIndex("Product_ID");
 
                     b.ToTable("KART");
-                });
-
-            modelBuilder.Entity("AmazonDream.Entities.PlacedOrder", b =>
-                {
-                    b.Property<long>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Address");
-
-                    b.Property<long>("Amount");
-
-                    b.Property<long>("Customer_ID");
-
-                    b.Property<DateTime>("DateTime");
-
-                    b.Property<long>("OrderNumber");
-
-                    b.Property<string>("PaymentType");
-
-                    b.Property<long>("Product_ID");
-
-                    b.Property<int>("Quantity");
-
-                    b.Property<string>("Status");
-
-                    b.HasKey("ID");
-
-                    b.HasIndex("Customer_ID");
-
-                    b.HasIndex("Product_ID");
-
-                    b.ToTable("PLACEDORDER");
                 });
 
             modelBuilder.Entity("AmazonDream.Entities.Product", b =>
@@ -271,19 +240,6 @@ namespace AmazonDream.DAL.Migrations
 
                     b.HasOne("AmazonDream.Entities.Product", "Product")
                         .WithMany("Kart")
-                        .HasForeignKey("Product_ID")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("AmazonDream.Entities.PlacedOrder", b =>
-                {
-                    b.HasOne("AmazonDream.Entities.Customer", "Customer")
-                        .WithMany("PlacedOrder")
-                        .HasForeignKey("Customer_ID")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("AmazonDream.Entities.Product", "Product")
-                        .WithMany("PlacedOrder")
                         .HasForeignKey("Product_ID")
                         .OnDelete(DeleteBehavior.Cascade);
                 });

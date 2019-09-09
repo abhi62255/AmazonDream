@@ -36,6 +36,8 @@ namespace AmazonDream.Entities
 
 
         public virtual ICollection<Product> Product { get; set; }
+        public virtual ICollection<Address> Address { get; set; }
+
 
     }
 }

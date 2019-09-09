@@ -31,6 +31,12 @@ namespace AmazonDream.BLL
             CreateMap<Kart, KartModel>();
             CreateMap<KartModel, Kart>();
 
+            CreateMap<Address, AddressModel>();
+            CreateMap<AddressModel, Address>();
+
+            CreateMap<PlacedOrder, PlacedOrderModel>();
+            CreateMap<PlacedOrderModel, PlacedOrder>();
+
 
 
 

@@ -34,6 +34,9 @@ namespace AmazonDream.Entities
 
 
         public virtual ICollection<Kart> Kart { get; set; }
+        public virtual ICollection<Address> Address { get; set; }
+        public virtual ICollection<PlacedOrder> PlacedOrder { get; set; }
+
 
 
     }
