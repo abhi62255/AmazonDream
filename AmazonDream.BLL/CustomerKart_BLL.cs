@@ -10,7 +10,8 @@ namespace AmazonDream.BLL
 {
     public class CustomerKart_BLL
     {
-        CustomerKart_DAL obj = new CustomerKart_DAL();
+        KartDA obj = new KartDA();
+        ProductDA _productDA = new ProductDA();
 
         private readonly IMapper _mapper;
         public CustomerKart_BLL(IMapper mapper)
@@ -25,7 +26,7 @@ namespace AmazonDream.BLL
             {
                     productEntity.ProductQuantityInKart += model.Quantity;
 
-                    var entity = _mapper.Map<KartModel, Kart>(model);
+                    var entity = _mapper.Map<KartModel, Entities.Kart>(model);
                     entity.DateTime = DateTime.Now;
 
                     if (obj.AddToKart(entity, productEntity))
@@ -40,7 +41,7 @@ namespace AmazonDream.BLL
 
         public Product ProductAvailability(long id, int quantity)               //Checking Product Availability
         {
-            var productEntity = obj.GetProduct(id);       //checking if product exists
+            var productEntity = _productDA.GetProduct(id);       //checking if product exists
             if (productEntity != null)
             {
                 var availableQuantity = productEntity.ProductQuantity - productEntity.ProductQuantityInKart;
@@ -74,7 +75,7 @@ namespace AmazonDream.BLL
             var kart = obj.GetKart(id);
             if (kart != null)
             {
-                var product = obj.GetProduct(kart.Product_ID);          //getting product whose ProductQuantityInKart in kart need to be alter
+                var product = _productDA.GetProduct(kart.Product_ID);          //getting product whose ProductQuantityInKart in kart need to be alter
                 product.ProductQuantityInKart -= 1;
 
                 kart.Quantity -= 1;
@@ -90,7 +91,7 @@ namespace AmazonDream.BLL
             
             if(kart != null)
             {
-                var product = obj.GetProduct(kart.Product_ID);
+                var product = _productDA.GetProduct(kart.Product_ID);
                 product.ProductQuantityInKart -= kart.Quantity;
 
                 if (obj.RemoveKartItem(id,product))
@@ -108,7 +109,7 @@ namespace AmazonDream.BLL
 
             foreach(var kart in modelK)
             {
-                var pro = obj.GetProduct(kart.Product_ID);
+                var pro = _productDA.GetProduct(kart.Product_ID);
                 pro.ProductQuantityInKart -= kart.Quantity;
                 products.Add(pro);
             }

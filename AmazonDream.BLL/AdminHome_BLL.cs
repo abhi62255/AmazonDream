@@ -11,7 +11,8 @@ namespace AmazonDream.BLL
 {
     public class AdminHome_BLL
     {
-        AdminHome_DAL obj = new AdminHome_DAL();
+        ProductDA _productDA = new ProductDA();
+        SellerDA _sellerDA = new SellerDA();
 
         private readonly IMapper _mapper;
         public AdminHome_BLL(IMapper mapper)
@@ -23,7 +24,7 @@ namespace AmazonDream.BLL
         {
 
             var model = new List<ProductModel>();
-            var entity = obj.GetProduct(value);
+            var entity = _productDA.GetProductByProductStatus(value);
 
             foreach (var i in entity)
             {
@@ -37,7 +38,7 @@ namespace AmazonDream.BLL
         {
 
             var model = new List<SellerModel>();
-            var entity = obj.GetSeller(value);
+            var entity = _sellerDA.GetSellerByStatus(value);
 
             foreach (var i in entity)
             {
@@ -52,12 +53,12 @@ namespace AmazonDream.BLL
             if (!(value == "Accepted" || value == "Deleted" || value == "accepted" || value == "deleted"))      //check for the if it is valid or not
                 return false;
 
-            var entity = obj.GetSellerByID(id);     //getting the seller by ID
+            var entity = _sellerDA.GetSellerByID(id);     //getting the seller by ID
 
             if(entity != null)
             {
                 entity.Status = value;
-                obj.UpdateSeller(entity);       //updating the seller with provided value
+                _sellerDA.UpdateSeller(entity);       //updating the seller with provided value
                 return true;
             }
             return false;
@@ -71,12 +72,12 @@ namespace AmazonDream.BLL
             if (!(value == "Accepted" || value == "Deleted" || value == "accepted" || value == "deleted"))      //check for the "value" if it is valid or not
                 return false;
 
-            var entity = obj.GetProductByID(id);     //getting the Product by ID
+            var entity = _productDA.GetProduct(id);     //getting the Product by ID
 
             if (entity != null)
             {
                 entity.ProductStatus = value;
-                obj.UpdateProduct(entity);       //updating the Product with provided value
+                _productDA.UpdateProduct(entity);       //updating the Product with provided value
                 return true;
             }
             return false;
@@ -86,7 +87,7 @@ namespace AmazonDream.BLL
         public List<ProductModel> TrendingProduct()         //Get Trending Product
         {
             var model = new  List<ProductModel>();
-            var entity = obj.TrendingProduct();
+            var entity = _productDA.TrendingProduct();
 
             foreach (var i in entity)
             {
@@ -102,12 +103,12 @@ namespace AmazonDream.BLL
             if (!(value == "True" || value == "False" || value == "true" || value == "false"))      //check for the "value" if it is valid or not
                 return false;
 
-            var entity = obj.GetProductByID(id);     //getting the Product by ID
+            var entity = _productDA.GetProduct(id);     //getting the Product by ID
 
             if (entity != null)
             {
                 entity.ProductTrend = value;
-                obj.UpdateProduct(entity);       //updating the Product with provided value
+                _productDA.UpdateProduct(entity);       //updating the Product with provided value
                 return true;
             }
             return false;

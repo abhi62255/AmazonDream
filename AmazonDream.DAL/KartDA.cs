@@ -7,29 +7,30 @@ using System.Text;
 
 namespace AmazonDream.DAL
 {
-    public class CustomerKart_DAL
+    public class KartDA
     {
         AmazonDreamDbContext db = new AmazonDreamDbContext();
+        ProductDA _productDA = new ProductDA();
 
-        public Product GetProduct(long id)              //getting product by ID
+
+
+        public Kart GetKart(long id)                //Get Kart value by Kart ID
         {
-            return db.Product.Where(p => p.ID == id).FirstOrDefault();
+            return db.Kart.Where(k => k.ID == id).FirstOrDefault();
         }
-        public Boolean UpdateProduct(Product product)               //Update Product : Changin ProductInKart Column 
+
+        public List<Kart> GetCustomerKart(long id)                //Get Kart For a customer by customer ID
         {
-            db.Entry(product).State = EntityState.Modified;
-            try
-            {
-                db.SaveChanges();
-            }
-            catch { return false; }
-            return true;
+            return db.Kart.Where(k => k.Customer_ID == id).ToList();
         }
+
+
+
 
 
         public Boolean AddToKart(Kart entity,Product product)               //Adding product to kart
         {
-            if(UpdateProduct(product))
+            if(_productDA.UpdateProduct(product))
             {
                 var model = db.Kart.Where(k => k.Product_ID == entity.Product_ID && k.Customer_ID == entity.Customer_ID).FirstOrDefault();
 
@@ -54,20 +55,11 @@ namespace AmazonDream.DAL
             
         }
 
-        public Kart GetKart(long id)                //Get Kart value by Kart ID
-        {
-            return db.Kart.Where(k => k.ID == id).FirstOrDefault();
-        }
-
-        public List<Kart> GetCustomerKart(long id)                //Get Kart For a customer by customer ID
-        {
-            return db.Kart.Where(k => k.Customer_ID == id).ToList();
-        }
-
+       
 
         public Boolean UpdateKart(Kart entity,Product product)                //UpdateKart
         {
-            if (UpdateProduct(product))
+            if (_productDA.UpdateProduct(product))
             {
                 db.Entry(entity).State = EntityState.Modified;
                 try
@@ -82,7 +74,7 @@ namespace AmazonDream.DAL
 
         public Boolean RemoveKartItem(long id,Product product)          //remove one row from Kart
         {
-            if (UpdateProduct(product))
+            if (_productDA.UpdateProduct(product))
             {
                 db.Kart.Remove(GetKart(id));
                 try
@@ -100,7 +92,7 @@ namespace AmazonDream.DAL
             var entity = GetCustomerKart(id);
             foreach (var pro in products)               //update all products IN kart value
             {
-                if (UpdateProduct(pro) == false)
+                if (_productDA.UpdateProduct(pro) == false)
                     return false;
                 
             }

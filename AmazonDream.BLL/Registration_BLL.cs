@@ -11,7 +11,9 @@ namespace AmazonDream.BLL
     public class Registration_BLL
     {
         
-        Registration_DAL obj = new Registration_DAL();
+        CustomerDA _customerDA = new CustomerDA();
+        SellerDA _sellerDA = new SellerDA();
+        CommonDA _commonDA = new CommonDA();
        
         private readonly IMapper _mapper;
         public Registration_BLL(IMapper mapper)
@@ -22,7 +24,7 @@ namespace AmazonDream.BLL
 
         public Boolean SellerRegistration(SellerModel model)            //Seller Registration
         {
-            if(obj.EmailExistance(model.Email))
+            if(_commonDA.EmailExistance(model.Email))
             {
                 return false;
             }
@@ -32,7 +34,7 @@ namespace AmazonDream.BLL
             entity.Status = "Pending";
           
 
-            if(obj.SellerRegistration(entity))
+            if(_sellerDA.SellerRegistration(entity))
             {
                 return true;
             }
@@ -42,7 +44,7 @@ namespace AmazonDream.BLL
 
         public Boolean CustomerRegistration(CustomerModel model)        //Customer Registration
         {
-            if (obj.EmailExistance(model.Email))
+            if (_commonDA.EmailExistance(model.Email))
             {
                 return false;
             }
@@ -50,7 +52,7 @@ namespace AmazonDream.BLL
             var entity = _mapper.Map<CustomerModel, Customer>(model);
             entity.Password = Hashing.Hash(entity.Password);
 
-            if(obj.CustomerRegistration(entity))
+            if(_customerDA.CustomerRegistration(entity))
             {
                 return true;
             }

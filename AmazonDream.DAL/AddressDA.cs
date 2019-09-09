@@ -7,9 +7,25 @@ using Microsoft.EntityFrameworkCore;
 
 namespace AmazonDream.DAL
 {
-    public class Address_DAL
+    public class AddressDA
     {
         AmazonDreamDbContext db = new AmazonDreamDbContext();
+
+
+        public List<Address> GetAddressCustomer(long id)            //getting customer address by customer id
+        {
+            return db.Address.Where(a => a.Customer_ID == id).ToList();
+        }
+        public List<Address> GetAddressSeller(long id)            //getting Seller address by seller ID
+        {
+            return db.Address.Where(a => a.Seller_ID == id).ToList();
+        }
+        public Address GetAddress(long id)              //getting Address by address ID
+        {
+            return db.Address.Where(a => a.ID == id).FirstOrDefault();
+        }
+
+
 
         public Boolean AddAddress(Address entity)           //add Address for Customer:Seller
         {
@@ -22,14 +38,7 @@ namespace AmazonDream.DAL
             return true;
         }
 
-        public List<Address> GetAddressCustomer(long id)            //getting customer address by customer id
-        {
-            return db.Address.Where(a => a.Customer_ID == id).ToList();
-        }
-        public List<Address> GetAddressSeller(long id)            //getting Seller address by seller ID
-        {
-            return db.Address.Where(a => a.Seller_ID == id).ToList();
-        }
+       
 
         public Boolean DeleteAddress(long id)           //Delete Address for Customer:Seller by address ID
         {
@@ -42,6 +51,8 @@ namespace AmazonDream.DAL
             catch { return false; }
             return true;
         }
+
+       
 
 
 

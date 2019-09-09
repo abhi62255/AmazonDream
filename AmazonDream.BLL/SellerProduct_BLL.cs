@@ -10,7 +10,7 @@ namespace AmazonDream.BLL
 {
     public class SellerProduct_BLL
     {
-        Product_DAL obj = new Product_DAL();
+        ProductDA obj = new ProductDA();
 
         private readonly IMapper _mapper;
         public SellerProduct_BLL(IMapper mapper)
