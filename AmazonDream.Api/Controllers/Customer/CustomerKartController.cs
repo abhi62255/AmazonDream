@@ -14,11 +14,11 @@ namespace AmazonDream.Api.Controllers.Customer
     [ApiController]
     public class CustomerKartController : ControllerBase
     {
-        private CustomerHome_BLL obj;
+        private CustomerKart_BLL obj;
 
         public CustomerKartController(IMapper mapper)
         {
-            obj = new CustomerHome_BLL(mapper);
+            obj = new CustomerKart_BLL(mapper);
         }
 
 
@@ -37,7 +37,7 @@ namespace AmazonDream.Api.Controllers.Customer
         }
 
         // PUT: api/CustomerKart/Increse
-        [HttpPut("Increse/{id}")]
+        [HttpPut("Increse/{id}")]                                       //incresing product Quantity in kart
         public IActionResult PutIncreseKartQuantity(long id)
         {
             if(obj.IncreseKartQuantity(id))
@@ -48,7 +48,7 @@ namespace AmazonDream.Api.Controllers.Customer
         }
 
         // PUT: api/CustomerKart/Decrese
-        [HttpPut("Decrese/{id}")]
+        [HttpPut("Decrese/{id}")]                                       //Decresing product Quantity in kart
         public IActionResult PutDecreseKartQuantity(long id)
         {
             if (obj.DecreseKartQuantity(id))

@@ -8,12 +8,12 @@ using System.Text;
 
 namespace AmazonDream.BLL
 {
-    public class CustomerHome_BLL
+    public class CustomerKart_BLL
     {
-        CustomerHome_DAL obj = new CustomerHome_DAL();
+        CustomerKart_DAL obj = new CustomerKart_DAL();
 
         private readonly IMapper _mapper;
-        public CustomerHome_BLL(IMapper mapper)
+        public CustomerKart_BLL(IMapper mapper)
         {
             _mapper = mapper;
         }
@@ -57,9 +57,15 @@ namespace AmazonDream.BLL
             var kart = obj.GetKart(id);
             if (kart != null)
             {
-                kart.Quantity += 1;
-                if (obj.UpdateKart(kart))
-                    return true;
+                var product = ProductAvailability(kart.Product_ID, 1);
+                if (product != null)        //checking Product Availability
+                {
+                    product.ProductQuantityInKart += 1;
+
+                    kart.Quantity += 1;
+                    if (obj.UpdateKart(kart, product))
+                        return true;
+                }
             }
             return false;
         }
@@ -68,8 +74,11 @@ namespace AmazonDream.BLL
             var kart = obj.GetKart(id);
             if (kart != null)
             {
+                var product = obj.GetProduct(kart.Product_ID);          //getting product whose ProductQuantityInKart in kart need to be alter
+                product.ProductQuantityInKart -= 1;
+
                 kart.Quantity -= 1;
-                if (obj.UpdateKart(kart))
+                if (obj.UpdateKart(kart,product))
                     return true;
             }
             return false;
@@ -77,14 +86,33 @@ namespace AmazonDream.BLL
 
         public Boolean RemoveKartItem(long id)              //Remove One item from Kart
         {
-            if (obj.RemoveKartItem(id))
-                return true;
+            var kart = obj.GetKart(id);
+            
+            if(kart != null)
+            {
+                var product = obj.GetProduct(kart.Product_ID);
+                product.ProductQuantityInKart -= kart.Quantity;
+
+                if (obj.RemoveKartItem(id,product))
+                    return true;
+            }
             return false;
+
+           
         }
 
         public Boolean RemoveKart(long id)              //Clear KArt for customer by customer ID
         {
-            if (obj.RemoveKart(id))
+            var products = new List<Product>();
+            var modelK = obj.GetCustomerKart(id);
+
+            foreach(var kart in modelK)
+            {
+                var pro = obj.GetProduct(kart.Product_ID);
+                pro.ProductQuantityInKart -= kart.Quantity;
+                products.Add(pro);
+            }
+            if (obj.RemoveKart(id,products))
                 return true;
             return false;
         }
