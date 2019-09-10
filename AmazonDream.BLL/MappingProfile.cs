@@ -37,6 +37,9 @@ namespace AmazonDream.BLL
             CreateMap<PlacedOrder, PlacedOrderModel>();
             CreateMap<PlacedOrderModel, PlacedOrder>();
 
+            CreateMap<Wishlist, WishlistModel>();
+            CreateMap<WishlistModel, Wishlist>();
+
 
 
 

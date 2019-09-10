@@ -20,6 +20,11 @@ namespace AmazonDream.DAL
         public virtual DbSet<Entities.Kart> Kart { get; set; }
         public virtual DbSet<Address> Address { get; set; }
         public virtual DbSet<PlacedOrder> PlacedOrder { get; set; }
+        public virtual DbSet<City> City { get; set; }
+        public virtual DbSet<State> State { get; set; }
+        public virtual DbSet<Wishlist> Wishlist { get; set; }
+
+
 
 
 

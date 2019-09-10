@@ -4,13 +4,15 @@ using AmazonDream.DAL;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace AmazonDream.DAL.Migrations
 {
     [DbContext(typeof(AmazonDreamDbContext))]
-    partial class AmazonDreamDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190909175353_CityState")]
+    partial class CityState
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -281,25 +283,6 @@ namespace AmazonDream.DAL.Migrations
                     b.ToTable("STATE");
                 });
 
-            modelBuilder.Entity("AmazonDream.Entities.Wishlist", b =>
-                {
-                    b.Property<long>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<long>("Customer_ID");
-
-                    b.Property<long>("Product_ID");
-
-                    b.HasKey("ID");
-
-                    b.HasIndex("Customer_ID");
-
-                    b.HasIndex("Product_ID");
-
-                    b.ToTable("WISHLIST");
-                });
-
             modelBuilder.Entity("AmazonDream.Entities.Address", b =>
                 {
                     b.HasOne("AmazonDream.Entities.Customer", "Customer")
@@ -357,19 +340,6 @@ namespace AmazonDream.DAL.Migrations
                 {
                     b.HasOne("AmazonDream.Entities.Product", "Product")
                         .WithMany("ProductPictures")
-                        .HasForeignKey("Product_ID")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("AmazonDream.Entities.Wishlist", b =>
-                {
-                    b.HasOne("AmazonDream.Entities.Customer", "Customer")
-                        .WithMany("Wishlist")
-                        .HasForeignKey("Customer_ID")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("AmazonDream.Entities.Product", "Product")
-                        .WithMany("Wishlist")
                         .HasForeignKey("Product_ID")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
