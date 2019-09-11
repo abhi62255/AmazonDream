@@ -23,6 +23,8 @@ namespace AmazonDream.DAL
         public virtual DbSet<City> City { get; set; }
         public virtual DbSet<State> State { get; set; }
         public virtual DbSet<Wishlist> Wishlist { get; set; }
+        public virtual DbSet<Feedback> Feedback { get; set; }
+
 
 
 

@@ -40,6 +40,9 @@ namespace AmazonDream.BLL
             CreateMap<Wishlist, WishlistModel>();
             CreateMap<WishlistModel, Wishlist>();
 
+            CreateMap<Feedback, FeedbackModel>();
+            CreateMap<FeedbackModel, Feedback>();
+
 
 
 
