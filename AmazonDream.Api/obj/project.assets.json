@@ -4674,6 +4674,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.1",
         "dependencies": {
+          "AmazonDream.Common": "1.0.0",
           "AmazonDream.Entities": "1.0.0",
           "Microsoft.EntityFrameworkCore.SqlServer": "2.0.0",
           "System.Net.Http": "4.3.4"

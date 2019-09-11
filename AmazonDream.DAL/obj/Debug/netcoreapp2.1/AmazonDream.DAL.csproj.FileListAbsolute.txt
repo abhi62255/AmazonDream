@@ -38,3 +38,5 @@ D:\Sagar Rout\AmazonDreamSolution\AmazonDream.DAL\obj\Debug\netcoreapp2.1\Amazon
 D:\Sagar Rout\AmazonDreamSolution\AmazonDream.DAL\obj\Debug\netcoreapp2.1\AmazonDream.DAL.csproj.CopyComplete
 D:\Sagar Rout\AmazonDreamSolution\AmazonDream.DAL\obj\Debug\netcoreapp2.1\AmazonDream.DAL.dll
 D:\Sagar Rout\AmazonDreamSolution\AmazonDream.DAL\obj\Debug\netcoreapp2.1\AmazonDream.DAL.pdb
+D:\Sagar Rout\AmazonDreamSolution\AmazonDream.DAL\bin\Debug\netcoreapp2.1\AmazonDream.Common.dll
+D:\Sagar Rout\AmazonDreamSolution\AmazonDream.DAL\bin\Debug\netcoreapp2.1\AmazonDream.Common.pdb

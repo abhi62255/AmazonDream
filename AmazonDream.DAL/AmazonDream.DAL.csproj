@@ -10,6 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\AmazonDream.Common\AmazonDream.Common.csproj" />
     <ProjectReference Include="..\AmazonDream.Entities\AmazonDream.Entities.csproj" />
   </ItemGroup>
 

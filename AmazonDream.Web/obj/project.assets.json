@@ -4334,10 +4334,21 @@
           "lib/netstandard1.3/System.Xml.XPath.XDocument.dll": {}
         }
       },
+      "AmazonDream.Common/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.1",
+        "compile": {
+          "bin/placeholder/AmazonDream.Common.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/AmazonDream.Common.dll": {}
+        }
+      },
       "AmazonDream.DAL/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.1",
         "dependencies": {
+          "AmazonDream.Common": "1.0.0",
           "AmazonDream.Entities": "1.0.0",
           "Microsoft.EntityFrameworkCore.SqlServer": "2.0.0",
           "System.Net.Http": "4.3.4"
@@ -11786,6 +11797,11 @@
         "system.xml.xpath.xdocument.4.3.0.nupkg.sha512",
         "system.xml.xpath.xdocument.nuspec"
       ]
+    },
+    "AmazonDream.Common/1.0.0": {
+      "type": "project",
+      "path": "../AmazonDream.Common/AmazonDream.Common.csproj",
+      "msbuildProject": "../AmazonDream.Common/AmazonDream.Common.csproj"
     },
     "AmazonDream.DAL/1.0.0": {
       "type": "project",

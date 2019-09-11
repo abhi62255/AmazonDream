@@ -64,6 +64,11 @@ namespace AmazonDream.DAL
             return db.Product.Where(p => p.ProductCategory == category).ToList();
         }
 
+        public List<Product> GetProductsBYSubCategory(string SubCategory)             //To suggest similar products by sub category
+        {
+            return db.Product.Where(p => p.ProductSubCategory == SubCategory).ToList();
+        }
+
 
 
         public Boolean AddProduct(Product entity)       //add Product 

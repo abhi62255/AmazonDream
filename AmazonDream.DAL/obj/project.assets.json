@@ -1442,6 +1442,16 @@
           "ref/netstandard1.3/System.Threading.Tasks.dll": {}
         }
       },
+      "AmazonDream.Common/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.1",
+        "compile": {
+          "bin/placeholder/AmazonDream.Common.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/AmazonDream.Common.dll": {}
+        }
+      },
       "AmazonDream.Entities/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.1",
@@ -5034,6 +5044,11 @@
         "system.threading.tasks.nuspec"
       ]
     },
+    "AmazonDream.Common/1.0.0": {
+      "type": "project",
+      "path": "../AmazonDream.Common/AmazonDream.Common.csproj",
+      "msbuildProject": "../AmazonDream.Common/AmazonDream.Common.csproj"
+    },
     "AmazonDream.Entities/1.0.0": {
       "type": "project",
       "path": "../AmazonDream.Entities/AmazonDream.Entities.csproj",
@@ -5042,6 +5057,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.1": [
+      "AmazonDream.Common >= 1.0.0",
       "AmazonDream.Entities >= 1.0.0",
       "Microsoft.EntityFrameworkCore.SqlServer >= 2.0.0",
       "Microsoft.NETCore.App >= 2.1.0",
@@ -5078,6 +5094,9 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
+            "D:\\Sagar Rout\\AmazonDreamSolution\\AmazonDream.Common\\AmazonDream.Common.csproj": {
+              "projectPath": "D:\\Sagar Rout\\AmazonDreamSolution\\AmazonDream.Common\\AmazonDream.Common.csproj"
+            },
             "D:\\Sagar Rout\\AmazonDreamSolution\\AmazonDream.Entities\\AmazonDream.Entities.csproj": {
               "projectPath": "D:\\Sagar Rout\\AmazonDreamSolution\\AmazonDream.Entities\\AmazonDream.Entities.csproj"
             }

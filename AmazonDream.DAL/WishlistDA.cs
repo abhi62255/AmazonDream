@@ -10,7 +10,7 @@ namespace AmazonDream.DAL
     {
         AmazonDreamDbContext db = new AmazonDreamDbContext();
 
-        public List<Wishlist> GetWishlist(long id)          //Get WIshlist by customer ID
+        public List<Wishlist> GetWishlist(long id)          //Get WIshlist product by customer ID
         {
             return db.Wishlist.Where(w => w.Customer_ID == id).ToList();
         }

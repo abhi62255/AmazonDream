@@ -19,7 +19,7 @@ namespace AmazonDream.DAL
             return db.Kart.Where(k => k.ID == id).FirstOrDefault();
         }
 
-        public List<Kart> GetCustomerKart(long id)                //Get Kart For a customer by customer ID
+        public List<Kart> GetCustomerKart(long id)                //Get For a customer by customer ID
         {
             return db.Kart.Where(k => k.Customer_ID == id).ToList();
         }
