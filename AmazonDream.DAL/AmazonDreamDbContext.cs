@@ -24,6 +24,9 @@ namespace AmazonDream.DAL
         public virtual DbSet<State> State { get; set; }
         public virtual DbSet<Wishlist> Wishlist { get; set; }
         public virtual DbSet<Feedback> Feedback { get; set; }
+        public virtual DbSet<PreVisit> PreVisit { get; set; }
+        public virtual DbSet<SearchHistory> SearchHistory { get; set; }
+
 
 
 
