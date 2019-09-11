@@ -29,8 +29,6 @@ namespace AmazonDream.DAL
 
         public string login(string email,string password)
         {
-            password = Hashing.Hash(password);
-
             if (db.Admin.Where(e => e.Email == email && e.Password == password).FirstOrDefault() == null)
             {
                 if (db.Seller.Where(e => e.Email == email && e.Password == password).FirstOrDefault() == null)
