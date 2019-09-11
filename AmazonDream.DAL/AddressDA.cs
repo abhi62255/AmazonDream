@@ -25,6 +25,14 @@ namespace AmazonDream.DAL
             return db.Address.Where(a => a.ID == id).FirstOrDefault();
         }
 
+        public List<string> GetCity()           //retrive Cities name
+        {
+            return db.City.Select(c=>c.CityName).ToList();
+        }
+        public List<string> GetState()          //retrive States Name
+        {
+            return db.State.Select(c => c.StateName).ToList();
+        }
 
 
         public Boolean AddAddress(Address entity)           //add Address for Customer:Seller

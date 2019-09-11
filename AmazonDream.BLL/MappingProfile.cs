@@ -43,6 +43,9 @@ namespace AmazonDream.BLL
             CreateMap<Feedback, FeedbackModel>();
             CreateMap<FeedbackModel, Feedback>();
 
+            CreateMap<PreVisit, PreVisitModel>();
+            CreateMap<PreVisitModel, PreVisit>();
+
 
 
 
